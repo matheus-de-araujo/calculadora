@@ -1,6 +1,13 @@
 package com.calculadora;
 
 public class Calculadora {
+
+    /* Construtor */
+    Calculadora(float termoUm, float termoDois) {
+        this.termoUm   = termoUm;
+        this.termoDois = termoDois;
+    }
+
     private float termoUm;
 
     private float termoDois;
