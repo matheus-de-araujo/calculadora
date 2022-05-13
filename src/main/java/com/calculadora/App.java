@@ -3,19 +3,17 @@ package com.calculadora;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws InterruptedException {
         InicializarSistema();
         InicializarInterfaceDeInteracao();
     }
 
-    private static void InicializarInterfaceDeInteracao() {
+    private static void InicializarInterfaceDeInteracao() throws InterruptedException {
         Scanner entrada = new Scanner(System.in);
         int operacao = 0;
-        
+
         while (true) {
-            
-            System.out.println("Gama Tecnologia");
-            System.out.println("Calculadora - Ver. 2.0");
 
             System.out.println("Selecione a operação:");
             System.out.println("1- Soma    2- Subtração    3- Multiplicação    4- Divisão    0- Finalizar");
@@ -24,43 +22,107 @@ public class App {
             if (operacao == 0)
                 break;
 
-            Double somatorio = 0.0;
-            while (true) {
-
-                Double entradaDoUsuario = 0.01;
-                System.out.println("Digite um valor (para finalizar digite 'sair'):");
-
-                try {
-                    entradaDoUsuario = entrada.nextDouble();
-                } catch (Exception e) {
-                    if (entradaDoUsuario.toString().toUpperCase().equals("SAIR")) {
-                        entradaDoUsuario = 0.0;
-                        break;
-                    }
-                    else {
-                        System.out.println("ATENÇÃO, valor invalido!");
-                        entradaDoUsuario = 0.0;
-                        break;
-                    }
-                }
-            }
+            LimparTela();
+            ObterEntradaERealizaOperacao(entrada, operacao);
         }
     }
 
-    public static void InicializarSistema() {
+    public static void ObterEntradaERealizaOperacao(Scanner entrada, int operacao) throws InterruptedException {
 
-        try {
-            System.out.println("  ############       #######             ####   ####             #######");
-            System.out.println("##                  ##     ##           ##  ## ##  ##           ##     ##");
-            System.out.println("##                 ##       ##         ##    ##     ##         ##       ##");
-            System.out.println("##      ######    ##         ##       ##             ##       ##         ##");
-            System.out.println("##          ##   ###############     ##               ##     ###############");
-            System.out.println("##          ##  ##             ##   ##                 ##   ##             ##");
-            System.out.println("  ############ ##               ## ##                   ## ##               ##");
-            System.out.println("                                                                        Tecnologia");
+        boolean primeiraIteracao = true;
+        while (true) {
 
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
+            String entradaUm;
+            if (primeiraIteracao) {
+                entradaUm = entrada.nextLine();
+                primeiraIteracao = false;
+            }
+            
+            System.out.println("Digite o primeiro valor (para finalizar digite 'sair'):");
+            entradaUm = entrada.nextLine();
+
+            if (entradaUm.toUpperCase().equals("SAIR")) {
+                LimparTela();
+                break;
+            }
+
+            String entradaDois;
+            System.out.println("Digite o segundo valor (para finalizar digite 'sair'):");
+            entradaDois = entrada.nextLine();
+
+            if (entradaDois.toUpperCase().equals("SAIR")) {
+                LimparTela();
+                break;
+            }
+
+            float termoUm, termoDois;
+            try {
+                termoUm = Float.valueOf(entradaUm).floatValue();
+                termoDois = Float.valueOf(entradaDois).floatValue();
+            } catch (Exception e) {
+                LimparTela();
+                System.out.println("ATENÇÃO, valor invalido!");
+                Thread.sleep(3000);
+                continue;
+            }
+
+            CalculadoraBasica calBasica = new CalculadoraBasica(termoUm, termoDois);
+
+            switch (operacao) {
+                case 1:
+                    calBasica.soma();
+                    System.out
+                            .println("A soma entre " + termoUm + " e " +
+                                    termoDois + " é: " + calBasica.getResultado());
+                    Thread.sleep(3000);
+                    LimparTela();
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    calBasica.divisao();
+                    System.out
+                            .println("A divisão entre " + termoUm + " e " +
+                                    termoDois + " é: " + calBasica.getResultado());
+                    Thread.sleep(3000);
+                    LimparTela();
+                    break;
+            }
+
+        }
+
+    }
+
+    public static void InicializarSistema() throws InterruptedException {
+        LimparTela();
+
+        System.out.println("  ############       #######             ####   ####             #######");
+        System.out.println("##                  ##     ##           ##  ## ##  ##           ##     ##");
+        System.out.println("##                 ##       ##         ##    ###    ##         ##       ##");
+        System.out.println("##      ######    ##         ##       ##      #      ##       ##         ##");
+        System.out.println("##          ##   ###############     ##               ##     ###############");
+        System.out.println("##          ##  ##             ##   ##                 ##   ##             ##");
+        System.out.println("  ############ ##               ## ##                   ## ##               ##");
+        System.out.println("                                                                        Tecnologia");
+        System.out.println("#################################################################################");
+        System.out.println("                                  Gama Tecnologia");
+        System.out.println("                               Calculadora - Ver. 2.0");
+        System.out.println("#################################################################################");
+
+        Thread.sleep(3000);
+
+    }
+
+    public static void LimparTela() {
+        int index = 0;
+        while (index != 10) {
+            System.out.println("\n");
+            index++;
         }
     }
 }
