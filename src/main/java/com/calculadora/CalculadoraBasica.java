@@ -12,4 +12,8 @@ public class CalculadoraBasica extends Calculadora{
     public void subtracao() {
         super.setResultado(this.getTermoUm() - this.getTermoDois());
     }
+  
+    public void divisao() {
+        super.setResultado(this.getTermoUm() / this.getTermoDois());      
+    }
 }
