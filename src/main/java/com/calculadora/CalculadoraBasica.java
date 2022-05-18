@@ -9,7 +9,11 @@ public class CalculadoraBasica extends Calculadora{
         super.setResultado(this.getTermoUm() + this.getTermoDois());
     }
 
+    public void subtracao() {
+        super.setResultado(this.getTermoUm() - this.getTermoDois());
+    }
+  
     public void divisao() {
-        super.setResultado(this.getTermoUm() / this.getTermoDois());
+        super.setResultado(this.getTermoUm() / this.getTermoDois());      
     }
 }
