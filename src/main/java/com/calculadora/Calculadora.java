@@ -3,38 +3,42 @@ package com.calculadora;
 public class Calculadora {
 
     /* Construtor */
-    Calculadora(float termoUm, float termoDois) {
+    Calculadora(double termoUm, double termoDois) {
         this.termoUm   = termoUm;
         this.termoDois = termoDois;
     }
 
-    private float termoUm;
+    Calculadora(double termoUm) {
+        this.termoUm   = termoUm;
+    }
 
-    private float termoDois;
+    private double termoUm;
 
-    private float resultado;
+    private double termoDois;
 
-    public float getTermoUm() {
+    private double resultado;
+
+    public double getTermoUm() {
         return termoUm;
     }
     
-    public float getResultado() {
+    public double getResultado() {
         return resultado;
     }
 
-    public void setResultado(float resultado) {
+    public void setResultado(double resultado) {
         this.resultado = resultado;
     }
 
-    public float getTermoDois() {
+    public double getTermoDois() {
         return termoDois;
     }
 
-    public void setTermoDois(float termoDois) {
+    public void setTermoDois(double termoDois) {
         this.termoDois = termoDois;
     }
 
-    public void setTermoUm(float termoUm) {
+    public void setTermoUm(double termoUm) {
         this.termoUm = termoUm;
     }
 }
