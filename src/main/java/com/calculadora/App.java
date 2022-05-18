@@ -4,8 +4,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        CalculadoraBasica cal = new CalculadoraBasica(2, 3);
-        cal.soma();
+        CalculadoraCientifica cal = new CalculadoraCientifica(2);
+        cal.raizQuadrada();
         System.out.println(cal.getResultado());
     }
 }

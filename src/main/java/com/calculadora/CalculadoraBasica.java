@@ -1,8 +1,12 @@
 package com.calculadora;
 
 public class CalculadoraBasica extends Calculadora{
-    CalculadoraBasica (float termoUm, float termoDois) {
+    CalculadoraBasica (double termoUm, double termoDois) {
         super(termoUm, termoDois);
+    }
+
+    CalculadoraBasica (double termoUm) {
+        super(termoUm);
     }
 
     public void soma() {
