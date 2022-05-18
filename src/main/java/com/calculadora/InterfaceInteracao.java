@@ -83,7 +83,7 @@ public class InterfaceInteracao {
                     break;
 
                 case 3:
-                    
+                    calBasica.multiplicacao();
                     System.out
                             .println("A multiplicação entre " + termoUm + " e " +
                                     termoDois + " é: " + calBasica.getResultado());
