@@ -10,8 +10,8 @@ public class InterfaceInteracao {
 
         while (true) {
 
-            System.out.println("Selecione a operação:");
-            System.out.println("1- Soma    2- Subtração    3- Multiplicação    4- Divisão    0- Finalizar");
+            System.out.println("\nSelecione a operação:");
+            System.out.println("1- Soma            5- Raiz quadrada\n2- Subtração       6- Seno\n3- Multiplicação   7- Cosseno\n4- Divisão         8- Tangente \n\n0- Finalizar");
             operacao = entrada.nextInt();
 
             if (operacao == 0)
@@ -34,18 +34,18 @@ public class InterfaceInteracao {
                 entradaUm = entrada.nextLine();
                 primeiraIteracao = false;
             }
-            
-            entradaUm = ObterValor(entrada,"primeiro");
-            if(entradaUm.toUpperCase().equals("SAIR")){
-                LimparTela();
-                break;
-            } 
 
-            entradaDois = ObterValor(entrada,"segundo");
-            if(entradaDois.toUpperCase().equals("SAIR")){
+            entradaUm = ObterValor(entrada, "primeiro");
+            if (entradaUm.toUpperCase().equals("SAIR")) {
                 LimparTela();
                 break;
-            } 
+            }
+
+            entradaDois = ObterValor(entrada, "segundo");
+            if (entradaDois.toUpperCase().equals("SAIR")) {
+                LimparTela();
+                break;
+            }
 
             float termoUm, termoDois;
             try {
@@ -58,43 +58,47 @@ public class InterfaceInteracao {
                 continue;
             }
 
-            CalculadoraBasica calBasica = new CalculadoraBasica(termoUm, termoDois);
+            CalculadoraCientifica calCientifica = new CalculadoraCientifica(termoUm, termoDois);
 
             switch (operacao) {
                 case 1:
-                    calBasica.soma();
-                    System.out
-                            .println("A soma entre " + termoUm + " e " +
-                                    termoDois + " é: " + calBasica.getResultado());
-                    Thread.sleep(3000);
-                    LimparTela();
+                    calCientifica.soma();
+                    ApresenteResultado("soma", termoUm, termoDois, calCientifica);
                     break;
 
                 case 2:
-                    calBasica.subtracao();
-                    System.out
-                            .println("A subtração entre " + termoUm + " e " +
-                                    termoDois + " é: " + calBasica.getResultado());
-                    Thread.sleep(3000);
-                    LimparTela();
+                    calCientifica.subtracao();
+                    ApresenteResultado("subtração", termoUm, termoDois, calCientifica);
                     break;
 
                 case 3:
-                    calBasica.multiplicacao();
-                    System.out
-                            .println("A multiplicação entre " + termoUm + " e " +
-                                    termoDois + " é: " + calBasica.getResultado());
-                    Thread.sleep(3000);
-                    LimparTela();
+                    calCientifica.multiplicacao();
+                    ApresenteResultado("multiplicação", termoUm, termoDois, calCientifica);
                     break;
 
                 case 4:
-                    calBasica.divisao();
-                    System.out
-                            .println("A divisão entre " + termoUm + " e " +
-                                    termoDois + " é: " + calBasica.getResultado());
-                    Thread.sleep(3000);
-                    LimparTela();
+                    calCientifica.divisao();
+                    ApresenteResultado("divisão", termoUm, termoDois, calCientifica);
+                    break;
+
+                case 5:
+                    calCientifica.raizQuadrada();
+                    ApresenteResultado("raiz quadrada", termoUm, termoDois, calCientifica);
+                    break;
+
+                case 6:
+                    calCientifica.seno();
+                    ApresenteResultado("operação seno", termoUm, termoDois, calCientifica);
+                    break;
+
+                case 7:
+                    calCientifica.cosseno();
+                    ApresenteResultado("operação cosseno", termoUm, termoDois, calCientifica);
+                    break;
+                
+                case 8:
+                    calCientifica.tangente();
+                    ApresenteResultado("operação tangente", termoUm, termoDois, calCientifica);
                     break;
             }
 
@@ -102,7 +106,16 @@ public class InterfaceInteracao {
 
     }
 
-    private static String ObterValor(Scanner entrada, String termo){
+    private static void ApresenteResultado(String operacao, Float termoUm, Float termoDois,
+            CalculadoraCientifica calCientifica) throws InterruptedException {
+        System.out
+                .println("A " + operacao + " entre " + termoUm + " e " +
+                        termoDois + " é: " + calCientifica.getResultado());
+        Thread.sleep(3000);
+        LimparTela();
+    }
+
+    private static String ObterValor(Scanner entrada, String termo) {
         System.out.println("Digite o " + termo + " valor (para finalizar digite 'sair'):");
         return entrada.nextLine();
     }
