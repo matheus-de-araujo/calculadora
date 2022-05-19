@@ -12,4 +12,8 @@ public class CalculadoraCientifica extends CalculadoraBasica{
     public void raizQuadrada() {
         super.setResultado(Math.sqrt(this.getTermoUm()));
     }
+
+    public void seno() {
+        super.setResultado(Math.sin(this.getTermoUm()));
+    }
 }
