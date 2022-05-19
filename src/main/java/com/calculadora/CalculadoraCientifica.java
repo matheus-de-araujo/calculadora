@@ -16,4 +16,8 @@ public class CalculadoraCientifica extends CalculadoraBasica{
     public void seno() {
         super.setResultado(Math.sin(this.getTermoUm()));
     }
+
+    public void cosseno() {
+        super.setResultado(Math.cos(this.getTermoUm()));
+    }
 }
