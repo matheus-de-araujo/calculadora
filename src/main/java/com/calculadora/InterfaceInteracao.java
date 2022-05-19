@@ -28,27 +28,24 @@ public class InterfaceInteracao {
         while (true) {
 
             String entradaUm;
+            String entradaDois;
+
             if (primeiraIteracao) {
                 entradaUm = entrada.nextLine();
                 primeiraIteracao = false;
             }
-
-            System.out.println("Digite o primeiro valor (para finalizar digite 'sair'):");
-            entradaUm = entrada.nextLine();
-
-            if (entradaUm.toUpperCase().equals("SAIR")) {
+            
+            entradaUm = ObterValor(entrada,"primeiro");
+            if(entradaUm.toUpperCase().equals("SAIR")){
                 LimparTela();
                 break;
-            }
+            } 
 
-            String entradaDois;
-            System.out.println("Digite o segundo valor (para finalizar digite 'sair'):");
-            entradaDois = entrada.nextLine();
-
-            if (entradaDois.toUpperCase().equals("SAIR")) {
+            entradaDois = ObterValor(entrada,"segundo");
+            if(entradaDois.toUpperCase().equals("SAIR")){
                 LimparTela();
                 break;
-            }
+            } 
 
             float termoUm, termoDois;
             try {
@@ -56,7 +53,7 @@ public class InterfaceInteracao {
                 termoDois = Float.valueOf(entradaDois).floatValue();
             } catch (Exception e) {
                 LimparTela();
-                System.out.println("ATENÇÃO, valor invalido!");
+                System.out.println("ATENÇÃO, valor inválido!");
                 Thread.sleep(3000);
                 continue;
             }
@@ -103,6 +100,11 @@ public class InterfaceInteracao {
 
         }
 
+    }
+
+    private static String ObterValor(Scanner entrada, String termo){
+        System.out.println("Digite o " + termo + " valor (para finalizar digite 'sair'):");
+        return entrada.nextLine();
     }
 
     public static void InicializarSistema() throws InterruptedException {
