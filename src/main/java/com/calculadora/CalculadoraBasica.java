@@ -20,4 +20,8 @@ public class CalculadoraBasica extends Calculadora{
     public void divisao() {
         super.setResultado(this.getTermoUm() / this.getTermoDois());      
     }
+
+    public void multiplicacao() {
+        super.setResultado(this.getTermoUm() * this.getTermoDois());      
+    }
 }
