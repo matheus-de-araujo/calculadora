@@ -24,4 +24,8 @@ public class CalculadoraCientifica extends CalculadoraBasica{
     public void tangente() {
         super.setResultado(Math.tan(this.getTermoUm()));
     }
+
+    public void exponenciacao() {
+        super.setResultado(Math.pow(this.getTermoUm()));
+    }
 }
