@@ -25,6 +25,10 @@ public class CalculadoraCientifica extends CalculadoraBasica{
         super.setResultado(Math.tan(this.getTermoUm()));
     }
 
+    public void exponenciacao() {
+        super.setResultado(Math.pow(this.getTermoUm()));
+    }
+
     public void logaritmo() {
         super.setResultado(Math.log(this.getTermoUm()));
     }
