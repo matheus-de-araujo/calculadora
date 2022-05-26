@@ -102,22 +102,22 @@ public class InterfaceInteracao {
 
                 case 5:
                     calCientifica.raizQuadrada();
-                    ApresenteResultadoDeUmTermos("raiz quadrada", termoUm, calCientifica);
+                    ApresenteResultadoDeUmTermo("raiz quadrada", termoUm, calCientifica);
                     break;
 
                 case 6:
                     calCientifica.seno();
-                    ApresenteResultadoDeUmTermos("operação seno", termoUm, calCientifica);
+                    ApresenteResultadoDeUmTermo("operação seno", termoUm, calCientifica);
                     break;
 
                 case 7:
                     calCientifica.cosseno();
-                    ApresenteResultadoDeUmTermos("operação cosseno", termoUm, calCientifica);
+                    ApresenteResultadoDeUmTermo("operação cosseno", termoUm, calCientifica);
                     break;
 
                 case 8:
                     calCientifica.tangente();
-                    ApresenteResultadoDeUmTermos("operação tangente", termoUm, calCientifica);
+                    ApresenteResultadoDeUmTermo("operação tangente", termoUm, calCientifica);
                     break;
 
                 case 9:
@@ -127,7 +127,7 @@ public class InterfaceInteracao {
 
                 case 10:
                     calCientifica.logaritmo();
-                    ApresenteResultadoDeUmTermos("operação Logaritmo", termoUm, calCientifica);
+                    ApresenteResultadoDeUmTermo("operação Logaritmo", termoUm, calCientifica);
                     break;
             }
 
@@ -144,7 +144,7 @@ public class InterfaceInteracao {
         LimparTela();
     }
 
-    private static void ApresenteResultadoDeUmTermos(String operacao, Float termo,
+    private static void ApresenteResultadoDeUmTermo(String operacao, Float termo,
             CalculadoraCientifica calCientifica) throws InterruptedException {
         System.out
                 .println("A " + operacao + " de " + termo + " é: " + calCientifica.getResultado());
