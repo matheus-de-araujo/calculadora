@@ -5,15 +5,28 @@ import java.util.Scanner;
 public class InterfaceInteracao {
 
     private static void InicializarInterfaceDeInteracao() throws InterruptedException {
-        Scanner entrada = new Scanner(System.in);
-        int operacao = 0;
-
+        
         while (true) {
-
+            Scanner entrada = new Scanner(System.in);
+            int operacao = 0;
             System.out.println("\nSelecione a operação:");
             System.out.println(
-                    "1- Soma            5- Raiz quadrada\n2- Subtração       6- Seno\n3- Multiplicação   7- Cosseno\n4- Divisão         8- Tangente \n\n0- Finalizar");
-            operacao = entrada.nextInt();
+                    "1- Soma            6- Seno\n2- Subtração	   7- Cosseno\n3- Multiplicação   8- Tangente\n4- Divisão         9- Exponenciação\n5- Raiz quadrada   10- Logaritmo");
+            
+            try {
+                operacao = entrada.nextInt();
+
+                if (operacao < 0 || operacao > 10) {
+                    System.out.println("ATENÇÃO, valor inválido!");
+                    Thread.sleep(3000);
+                    continue;
+                }
+
+            } catch (Exception e) {
+                System.out.println("ATENÇÃO, valor inválido!");
+                Thread.sleep(3000);
+                continue;
+            }
 
             if (operacao == 0)
                 break;
@@ -25,7 +38,7 @@ public class InterfaceInteracao {
 
     private static void ObterEntradaERealizaOperacao(Scanner entrada, int operacao) throws InterruptedException {
 
-        int soma = 1, divisao = 4;
+        int soma = 1, divisao = 4, exponenciacao = 9;
         boolean primeiraIteracao = true;
         while (true) {
 
@@ -43,7 +56,7 @@ public class InterfaceInteracao {
                 break;
             }
 
-            if (operacao >= soma && operacao <= divisao) {
+            if ((operacao >= soma && operacao <= divisao) || operacao == exponenciacao) {
                 entradaDois = ObterValor(entrada, "segundo");
                 if (entradaDois.toUpperCase().equals("SAIR")) {
                     LimparTela();
@@ -54,7 +67,7 @@ public class InterfaceInteracao {
             float termoUm = 0, termoDois = 0;
             try {
                 termoUm = Float.valueOf(entradaUm).floatValue();
-                if (operacao >= soma && operacao <= divisao) {
+                if ((operacao >= soma && operacao <= divisao) || operacao == exponenciacao) {
                     termoDois = Float.valueOf(entradaDois).floatValue();
                 }
             } catch (Exception e) {
@@ -105,6 +118,16 @@ public class InterfaceInteracao {
                 case 8:
                     calCientifica.tangente();
                     ApresenteResultadoDeUmTermos("operação tangente", termoUm, calCientifica);
+                    break;
+
+                case 9:
+                    calCientifica.exponenciacao();
+                    ApresenteResultadoDeDoisTermos("operação exponenciação", termoUm, termoDois, calCientifica);
+                    break;
+
+                case 10:
+                    calCientifica.logaritmo();
+                    ApresenteResultadoDeUmTermos("operação Logaritmo", termoUm, calCientifica);
                     break;
             }
 
