@@ -26,7 +26,7 @@ public class CalculadoraCientifica extends CalculadoraBasica{
     }
 
     public void exponenciacao() {
-        super.setResultado(Math.pow(this.getTermoUm()));
+        super.setResultado(Math.pow(this.getTermoUm(), this.getTermoDois()));
     }
 
     public void logaritmo() {
