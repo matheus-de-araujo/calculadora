@@ -12,7 +12,7 @@ public class InterfaceInteracao {
             System.out.println("\nSelecione a operação:");
             System.out.println(
                     "1- Soma            6- Seno\n2- Subtração	   7- Cosseno\n3- Multiplicação   8- Tangente\n4- Divisão         9- Exponenciação\n5- Raiz quadrada   10- Logaritmo");
-            
+            System.out.println("0 - Sair");
             try {
                 operacao = entrada.nextInt();
 
@@ -97,6 +97,7 @@ public class InterfaceInteracao {
 
                 case 4:
                     calCientifica.divisao();
+                    if (termoDois == 0) break;
                     ApresenteResultadoDeDoisTermos("divisão", termoUm, termoDois, calCientifica);
                     break;
 
