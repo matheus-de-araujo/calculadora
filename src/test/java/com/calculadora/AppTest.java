@@ -1,6 +1,6 @@
 package com.calculadora;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
@@ -9,12 +9,14 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+
     @Test
-    public void shouldAnswerWithTrue()
+    public void somaDeDoisNumeros()
     {
-        assertTrue( true );
+        CalculadoraCientifica calculator = new CalculadoraCientifica(4,5);
+        calculator.soma();
+        double expect = 9;
+        double fuzzFactor = 22.0d / 7.0d;
+        assertEquals(expect, calculator.getResultado(), fuzzFactor);
     }
 }
