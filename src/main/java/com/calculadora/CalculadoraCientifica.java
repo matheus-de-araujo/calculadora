@@ -34,6 +34,10 @@ public class CalculadoraCientifica extends CalculadoraBasica{
     }
 
     public void logaritmo() {
+        if(this.getTermoUm() <= 0) {
+            System.out.println("Não existe resultados para números menor ou igual a ZERO!");
+            return;
+        }
         super.setResultado(Math.log(this.getTermoUm()));
     }
 }
