@@ -103,6 +103,7 @@ public class InterfaceInteracao {
 
                 case 5:
                     calCientifica.raizQuadrada();
+                    if (termoDois < 0) break;
                     ApresenteResultadoDeUmTermo("raiz quadrada", termoUm, calCientifica);
                     break;
 

@@ -10,6 +10,10 @@ public class CalculadoraCientifica extends CalculadoraBasica{
     }
 
     public void raizQuadrada() {
+        if(this.getTermoUm() < 0) {
+            System.out.println("Não existe raiz quadrada de número negativo");
+            return;
+        }
         super.setResultado(Math.sqrt(this.getTermoUm()));
     }
 
