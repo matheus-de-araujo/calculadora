@@ -18,6 +18,10 @@ public class CalculadoraBasica extends Calculadora{
     }
   
     public void divisao() {
+        if (this.getTermoDois() == 0) {
+            System.out.println("Não é possível realizar divisão por ZERO!");
+            return;
+        }
         super.setResultado(this.getTermoUm() / this.getTermoDois());      
     }
 
