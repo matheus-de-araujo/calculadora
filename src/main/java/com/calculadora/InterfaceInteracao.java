@@ -103,7 +103,7 @@ public class InterfaceInteracao {
 
                 case 5:
                     calCientifica.raizQuadrada();
-                    if (termoDois < 0) break;
+                    if (termoUm < 0) break;
                     ApresenteResultadoDeUmTermo("raiz quadrada", termoUm, calCientifica);
                     break;
 
@@ -129,6 +129,7 @@ public class InterfaceInteracao {
 
                 case 10:
                     calCientifica.logaritmo();
+                    if(termoUm <= 0) break;
                     ApresenteResultadoDeUmTermo("operação Logaritmo", termoUm, calCientifica);
                     break;
             }
